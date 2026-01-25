@@ -49,8 +49,9 @@ EOF
 
 # Main function to handle menu selection
 main() {
-    choice=$(menu | rofi -i -dmenu -config $rofi_theme -mesg "$msg")
-    
+    # choice=$(menu | rofi -i -dmenu -config $rofi_theme -mesg "$msg")
+    choice=$(menu | wofi -c ~/.config/wofi/settings -s ~/.config/wofi/style-list.css --show dmenu "$msg" -n)   
+
     # Map choices to corresponding files
     case "$choice" in
     	"view/edit User Defaults") file="$UserConfigs/01-UserDefaults.conf" ;;
